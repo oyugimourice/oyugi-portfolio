@@ -111,19 +111,24 @@ function toggleContent(e) {
 }
 
 function toggleSection(button) {
-  const section = button.parentElement;
-  const items = section.querySelectorAll('.hidden-items');
+  const section = button.closest('.section-card');
+  if (!section) return;
+
+  const expanded = section.classList.toggle('section-card--expanded');
+  button.setAttribute('aria-expanded', expanded);
+
+  const label = button.querySelector('.toggle-label');
+  if (label) {
+      label.textContent = expanded ? 'Show Less' : 'Show All';
+  }
+
   const icon = button.querySelector('i');
-  
-  items.forEach(item => {
-      item.style.display = item.style.display === 'block' ? 'none' : 'block';
-  });
-  
-  icon.style.transform = icon.style.transform === 'rotate(180deg)' 
-      ? 'rotate(0deg)' 
-      : 'rotate(180deg)';
-  
-  button.textContent = button.textContent.includes('Show All') 
-      ? 'Show Less' 
-      : 'Show All';
+  if (icon) {
+      icon.classList.toggle('rotated', expanded);
+  }
+}
+
+const yearDisplay = document.getElementById('current-year');
+if (yearDisplay) {
+  yearDisplay.textContent = new Date().getFullYear();
 }

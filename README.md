@@ -7,7 +7,6 @@ Showcase your skills, connect with the world.
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
@@ -31,14 +30,16 @@ This project aims to create an engaging digital experience that highlights profe
 You can access the portfolio directly in any web browser by opening `index.html`.
 
 Alternatively, you can:
+
 1. Clone the repository:
 
-   ```sh
-   git clone https://github.com/oyugidf/oyugi-portfolio.git
-   ```
+```sh
+git clone https://github.com/oyugimourice/oyugi-portfolio.git
 
-2. Open the project folder and launch `index.html` in your preferred browser.
-3. For live preview and testing, use the **Live Server** extension in VS Code.
+```
+
+1. Open the project folder and launch `index.html` in your preferred browser.
+2. For live preview and testing, use the **Live Server** extension in VS Code.
 
 ## Contributing
 
@@ -47,4 +48,3 @@ Contributions are welcome! If you find a bug or have a feature suggestion, feel 
 ## License
 
 This project is open-source and available under the MIT License.
-

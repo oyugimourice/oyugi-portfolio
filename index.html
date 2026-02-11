@@ -25,7 +25,6 @@
     <meta name="twitter:image" content="https://oyugi.netlify.app/home-image.jpg" />
 
     <!-- External Css stylings -->
-    <link rel="stylesheet" href="style.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -66,11 +65,11 @@
             </p>
             <div class="btn-box">
                 <a href="#contact" class="btn">Hire Me</a>
-                <a href="https://docs.google.com/document/d/1Aq0L6wZ-xKdrt0JHD7juY3MenCMJGU7Ml2TJGQJuEiI/edit?tab=t.0/export?format=pdf" class="btn" target="_blank">My Resume</a>
+                <a href="https://docs.google.com/document/d/1Aq0L6wZ-xKdrt0JHD7juY3MenCMJGU7Ml2TJGQJuEiI/edit?tab=t.0/export?format=pdf" class="btn" target="_blank" rel="noopener noreferrer">My Resume</a>
 
             </div>
             <div class="home-sci">
-                <a href="https://wa.me/0700314150"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://wa.me/254700314150" target="_blank" rel="noopener noreferrer"><i class='bx bxl-whatsapp'></i></a>
                 <a href="https://github.com/oyugijr"><i class='bx bxl-github'></i></a>
                 <a href="https://twitter.com/oyugijR1"><i class='bx bxl-twitter'></i></a>
                 <a href="https://www.linkedin.com/in/oyugimourice"><i class='bx bxl-linkedin'></i></a>
@@ -85,10 +84,10 @@
     <!-- About Section -->
     <section class="about" id="about">
         <h2 class="heading">About <span>Me</span></h2>
-        <div class="about - container">
+        <div class="about-container">
             <div class="about-img">
-                <img src="img/ste.jpg">
-                <span class="circle-spin" object-fit="fit"></span>
+                <span class="circle-spin" aria-hidden="true"></span>
+                <img src="img/ste.jpg" alt="Portrait of Oyugi Mourice smiling">
             </div>
             <div class="about-content">
                 <h3>Software Engineer !</h3>
@@ -124,8 +123,9 @@
                     </div>
                     <p><Legend><i>Coursework:</i></Legend> Computer fundamentals, Microsoft office applications, Fundamentals of Computer networks and Internet</p>
                 </div>
-                <button class="toggle-btn" onclick="toggleSection(this)">
-                    Show All <i class="fas fa-chevron-down"></i>
+                <button class="toggle-btn" type="button" onclick="toggleSection(this)" aria-expanded="false">
+                    <span class="toggle-label">Show All</span>
+                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
             </div>
     
@@ -148,8 +148,9 @@
                     </div>
                     <p>Optimized performance and SEO, integrated Stripe in MAJI APP, and delivered a 98% project grade with a 4-member Agile team.</p>
                 </div>
-                <button class="toggle-btn" onclick="toggleSection(this)">
-                    Show All <i class="fas fa-chevron-down"></i>
+                <button class="toggle-btn" type="button" onclick="toggleSection(this)" aria-expanded="false">
+                    <span class="toggle-label">Show All</span>
+                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
@@ -303,10 +304,10 @@
                     <div class="project-header">
                         <h3 class="project-title">Luhn Algorithm CLI</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/luhn_algo.git" target="_blank">
+                            <a href="https://github.com/oyugijr/luhn_algo.git" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -331,10 +332,10 @@
                     <div class="project-header">
                         <h3 class="project-title">EcoTech Platform</h3>
                         <div class="project-links">
-                            <a href="https://github.com/ogwgjr/echo-tech.git" target="_blank">
+                            <a href="https://github.com/ogwgjr/echo-tech.git" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -359,10 +360,10 @@
                     <div class="project-header">
                         <h3 class="project-title">Expense Tracker CLI</h3>
                         <div class="project-links">
-                            <a href="https://github.com/yourusername/expense-tracker.git" target="_blank">
+                            <a href="https://github.com/yourusername/expense-tracker.git" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -386,10 +387,10 @@
                     <div class="project-header">
                         <h3 class="project-title">Automated Systems</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/Automated-Systems-Project.git" target="_blank">
+                            <a href="https://github.com/oyugijr/Automated-Systems-Project.git" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -414,10 +415,10 @@
                     <div class="project-header">
                         <h3 class="project-title">Portfolio</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/oyugi-portfolio.git" target="_blank">
+                            <a href="https://github.com/oyugijr/oyugi-portfolio.git" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://oyugi.netlify.app" target="_blank">
+                            <a href="https://oyugi.netlify.app" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -442,10 +443,10 @@
                     <div class="project-header">
                         <h3 class="project-title">Sorting Visualizer</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/algoVista.git" target="_blank">
+                            <a href="https://github.com/oyugijr/algoVista.git" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" target="_blank">
+                            <a href="#" target="_blank" rel="noopener noreferrer">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
@@ -477,7 +478,7 @@
             </div>
             <div class="input-box">
                 <div class="input-field">
-                    <input id="mobile" type="number" placeholder="Mobile Number" required>
+                    <input id="mobile" type="tel" inputmode="tel" pattern="^\+?[0-9\s\-]{7,15}$" placeholder="Mobile Number" required>
                 </div>
                 <div class="input-field">
                     <input id="subject" type="text" placeholder="Email Subject" required>
@@ -497,7 +498,7 @@
     <footer class="footer">
         <!-- Footer Text -->
         <div class="footer-text">
-            <p>Copyright &copy; 2026 by Oyugi | All Rights Reserved</p>
+            <p>Copyright &copy; <span id="current-year"></span> by Oyugi | All Rights Reserved</p>
         </div>
         <!-- Back to Top Icons -->
         <div class="footer-iconTop">

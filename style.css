@@ -226,6 +226,14 @@ section {
   background: var(--second-bg-color);
   padding-bottom: 6rem;
 }
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4rem;
+  align-items: center;
+}
 .heading {
   font-size: 5rem;
   margin-bottom: 3rem;
@@ -236,41 +244,49 @@ span {
 }
 .about-img {
   position: relative;
-  width: 30rem;
-  height: 30rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  max-width: 34rem;
+  aspect-ratio: 4 / 5;
+  border-radius: 2.4rem;
+  padding: 0.8rem;
+  background: linear-gradient(140deg, rgba(0, 171, 240, 0.7), rgba(8, 27, 41, 0.95));
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
 }
 .about-img img {
-  width: 90%;
-  border-radius: 50%;
-  border: 0.2rem solid var(--main-color);
+  width: 100%;
+  height: 100%;
+  border-radius: 1.8rem;
+  border: none;
+  display: block;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  filter: saturate(1.05) contrast(1.05);
 }
 .about-img .circle-spin {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(0);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border-top: 0.2rem solid var(--second-bg-color);
-  border-bottom: 0.2rem solid var(--second-bg-color);
-  border-left: 0.2rem solid var(--main-color);
-  border-right: 0.2rem solid var(--main-color);
-  animation: aboutSpinner 8s linear infinite;
+  inset: 1.2rem;
+  border-radius: 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 0;
+  animation: aboutPulse 6s ease-in-out infinite;
 }
 
-@keyframes aboutSpinner {
+@keyframes aboutPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
   100% {
-      transform: translate(-50%, -50%) rotate(360deg);
+    transform: scale(1.05);
+    opacity: 0.9;
   }
 }
 
 .about-content {
-  text-align: center;
+  text-align: left;
+  max-width: 52rem;
 }
 .about-content h3 {
   display: inline-block;
@@ -278,8 +294,9 @@ span {
 }
 .about-content p {
   /* About Section Paragraph */
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin: 2rem 0 1.5rem;
+  line-height: 1.8;
 }
 
 .hidden-content {
@@ -288,6 +305,14 @@ span {
   gap: 2rem;
   max-width: 1200px;
   width: 100%;
+}
+
+.hidden-items {
+  display: none;
+}
+
+.section-card.section-card--expanded .hidden-items {
+  display: block;
 }
 
 .section-card {
@@ -345,21 +370,35 @@ span {
 }
 
 .toggle-btn {
-  background: none;
-  border: none;
-  color: var(--main-color);
-  padding: 0.8rem 1.5rem;
-  border-radius: 0.6rem;
-  font-size: 1.3rem;
+  background: rgba(0, 171, 240, 0.08);
+  border: 1px solid rgba(0, 171, 240, 0.4);
+  color: var(--text-color);
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-size: 1.4rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   margin-top: 1rem;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .toggle-btn:hover {
-  background: rgba(0, 171, 240, 0.1);
+  background: rgba(0, 171, 240, 0.2);
+  border-color: var(--main-color);
+}
+
+.toggle-btn .toggle-label {
+  font-weight: 600;
+}
+
+.toggle-btn i {
+  transition: transform 0.3s ease;
+}
+
+.toggle-btn i.rotated {
+  transform: rotate(180deg);
 }
 
 /* Button Styling */
