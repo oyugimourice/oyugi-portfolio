@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg-main: #081b29;
+  --color-bg-secondary: #112e42;
+  --color-text-main: #ededed;
+  --color-text-muted: #a0b3c6;
+  --color-cyan-main: #00abf0;
+  --color-cyan-light: #0ef;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-color: var(--color-bg-main);
+  --second-bg-color: var(--color-bg-secondary);
+  --text-color: var(--color-text-main);
+  --text-muted: var(--color-text-muted);
+  --main-color: var(--color-cyan-main);
+  --accent-color: var(--color-cyan-light);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --card-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --gradient: linear-gradient(135deg, var(--main-color), var(--accent-color));
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark-mode {
+  --bg-color: #ffffff;
+  --second-bg-color: #caddff;
+  --text-color: #000000;
+  --text-muted: #334155;
+  --main-color: rgb(0, 162, 255);
+  --accent-color: #0088ff;
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animations & Effects from original CSS */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+  animation: float 10s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-color);
+  top: -100px;
+  left: -100px;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--main-color);
+  bottom: 10%;
+  right: -50px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(30px, 50px);
+  }
+}
+
+.btn-gradient {
+  background: var(--gradient);
+  box-shadow: 0 8px 20px rgba(0, 171, 240, 0.3);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 238, 255, 0.4);
+}
+
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Base resets to match original HTML tags if they were not Tailwind classes */
+section {
+  min-height: 100vh;
 }
