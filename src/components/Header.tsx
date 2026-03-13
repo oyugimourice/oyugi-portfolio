@@ -60,7 +60,7 @@ export default function Header() {
         { href: "https://github.com/oyugimourice", icon: "bx bxl-github", label: "GitHub" },
         { href: "https://www.linkedin.com/in/oyugimourice", icon: "bx bxl-linkedin", label: "LinkedIn" },
         { href: "https://x.com/oyugi_4e", icon: "bx bxl-twitter", label: "X" },
-        { href: "#", icon: "bx bxl-instagram", label: "Instagram" },
+        { href: "https://www.instagram.com/oyugimourice_", icon: "bx bxl-instagram", label: "Instagram" },
         { href: "https://discordapp.com/users/1260703236101373996", icon: "bx bxl-discord-alt", label: "Discord" },
     ];
 
@@ -76,11 +76,10 @@ export default function Header() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                                isLinkActive(link.href)
+                            className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${isLinkActive(link.href)
                                     ? "bg-[var(--selection-bg)] text-[var(--text-color)]"
                                     : "text-[var(--text-muted)] hover:text-[var(--text-color)] hover:bg-[var(--selection-bg)]/50"
-                            }`}
+                                }`}
                         >
                             <i className={`${link.icon} text-lg`}></i>
                             {link.name}
@@ -124,7 +123,7 @@ export default function Header() {
                         >
                             {social.label === "X" ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.486 3.24H4.298l13.309 17.41z"/>
+                                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.486 3.24H4.298l13.309 17.41z" />
                                 </svg>
                             ) : (
                                 <i className={social.icon}></i>
@@ -138,13 +137,13 @@ export default function Header() {
                         Designed & Developed by Oyugi Mourice
                     </p>
                     <div className="flex p-0.5 bg-[var(--selection-bg)] rounded-md w-max">
-                        <button 
+                        <button
                             onClick={() => isDarkMode && toggleDarkMode()}
                             className={`p-1 px-3 text-[10px] font-bold rounded ${!isDarkMode ? "bg-[var(--bg-color)] shadow-sm" : "text-[var(--text-muted)]"}`}
                         >
                             LIGHT
                         </button>
-                        <button 
+                        <button
                             onClick={() => !isDarkMode && toggleDarkMode()}
                             className={`p-1 px-3 text-[10px] font-bold rounded ${isDarkMode ? "bg-[var(--dark-bg-secondary)] shadow-sm" : "text-[var(--text-muted)]"}`}
                         >
