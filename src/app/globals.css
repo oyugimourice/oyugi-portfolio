@@ -17,7 +17,7 @@
   --color-dark-border: #222222;
 }
 
-:root {
+:root, .light {
   --bg-color: var(--color-bg-main);
   --second-bg-color: var(--color-bg-secondary);
   --text-color: var(--color-text-main);
@@ -27,7 +27,7 @@
   --selection-bg: #f0f0f0;
 }
 
-.dark-mode {
+.dark {
   --bg-color: var(--color-dark-bg-main);
   --second-bg-color: var(--color-dark-bg-secondary);
   --text-color: var(--color-dark-text-main);
@@ -38,7 +38,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not(.light-mode) {
+  :root:not(.light) {
     --bg-color: var(--color-dark-bg-main);
     --second-bg-color: var(--color-dark-bg-secondary);
     --text-color: var(--color-dark-text-main);

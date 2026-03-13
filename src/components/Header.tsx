@@ -11,6 +11,22 @@ export default function Header() {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
+        // Initialize theme
+        const savedTheme = localStorage.getItem("theme");
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+            setIsDarkMode(true);
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+        } else {
+            setIsDarkMode(false);
+            document.documentElement.classList.add("light");
+            document.documentElement.classList.remove("dark");
+        }
+    }, []);
+
+    useEffect(() => {
         if (pathname !== "/") return;
 
         const handleScroll = () => {
@@ -33,9 +49,18 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [pathname]);
 
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-        document.body.classList.toggle("dark-mode");
+    const toggleTheme = (type: "light" | "dark") => {
+        if (type === "dark") {
+            setIsDarkMode(true);
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.remove("light");
+            localStorage.setItem("theme", "dark");
+        } else {
+            setIsDarkMode(false);
+            document.documentElement.classList.add("light");
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
     };
 
     const navLinks = [
@@ -137,15 +162,15 @@ export default function Header() {
                         Designed & Developed by Oyugi Mourice
                     </p>
                     <div className="flex p-0.5 bg-[var(--selection-bg)] rounded-md w-max">
-                        <button
-                            onClick={() => isDarkMode && toggleDarkMode()}
-                            className={`p-1 px-3 text-[10px] font-bold rounded ${!isDarkMode ? "bg-[var(--bg-color)] shadow-sm" : "text-[var(--text-muted)]"}`}
+                        <button 
+                            onClick={() => isDarkMode && toggleTheme("light")}
+                            className={`p-1 px-3 text-[10px] font-bold rounded transition-all ${!isDarkMode ? "bg-[var(--bg-color)] shadow-sm text-[var(--text-color)]" : "text-[var(--text-muted)] hover:text-[var(--text-color)]"}`}
                         >
                             LIGHT
                         </button>
-                        <button
-                            onClick={() => !isDarkMode && toggleDarkMode()}
-                            className={`p-1 px-3 text-[10px] font-bold rounded ${isDarkMode ? "bg-[var(--dark-bg-secondary)] shadow-sm" : "text-[var(--text-muted)]"}`}
+                        <button 
+                            onClick={() => !isDarkMode && toggleTheme("dark")}
+                            className={`p-1 px-3 text-[10px] font-bold rounded transition-all ${isDarkMode ? "bg-[var(--dark-bg-secondary)] shadow-sm text-[var(--text-color)]" : "text-[var(--text-muted)] hover:text-[var(--text-color)]"}`}
                         >
                             DARK
                         </button>
