@@ -1,30 +1,31 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Inter, Fira_Code } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+});
+
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-fira-code",
 });
 
 export const metadata: Metadata = {
-  title: "Oyugi Mourice Odhiambo - Software Engineer",
+  title: "Oyugi Mourice Odhiambo | Software Engineer",
   description:
-    "Software Engineer specializing in building exceptional digital experiences. View my projects and get in touch.",
+    "Software Engineer specializing in building exceptional digital experiences. Inspired by minimalism and functional design.",
   keywords: [
     "software engineer",
     "web developer",
     "frontend developer",
-    "Backend developer",
-    "react developer",
     "portfolio",
-    "Full stack developer",
-    "Oyugi",
-    "Mourice",
-    "Odhiambo",
+    "Oyugi Mourice",
   ],
 };
+
+import Header from "@/components/Header";
 
 export default function RootLayout({
   children,
@@ -38,13 +39,14 @@ export default function RootLayout({
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet"
         />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
       </head>
-      <body className={`${outfit.variable} font-sans antialiased`}>
-        {children}
+      <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased text-[var(--text-color)] bg-[var(--bg-color)]`}>
+        <div className="flex flex-col lg:flex-row min-h-screen relative overflow-x-hidden">
+          <Header />
+          <main className="flex-1 w-full lg:ml-0 overflow-y-auto">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

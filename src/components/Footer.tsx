@@ -1,30 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Footer() {
-    const [year, setYear] = useState(new Date().getFullYear());
-
-    useEffect(() => {
-        setYear(new Date().getFullYear());
-    }, []);
-
     return (
-        <footer className="flex flex-col md:flex-row justify-between items-center px-[5%] md:px-[9%] py-8 bg-[var(--second-bg-color)] border-t border-[var(--glass-border)] gap-6 text-center md:text-left">
-            <div className="text-[var(--text-muted)] text-base font-medium">
-                <p>Copyright &copy; {year} by Oyugi | Crafting Digital Excellence</p>
+        <footer className="py-12 border-t border-[var(--border-color)] flex justify-between items-center">
+            <div className="flex flex-col gap-2">
+                <p className="text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">STAY IN TOUCH</p>
+                <div className="flex gap-4">
+                    <Link href="https://github.com/oyugimourice" target="_blank" className="text-sm font-medium hover:text-[var(--text-muted)] transition-colors underline decoration-[var(--border-color)] underline-offset-4">GITHUB</Link>
+                    <Link href="https://linkedin.com/in/oyugimourice" target="_blank" className="text-sm font-medium hover:text-[var(--text-muted)] transition-colors underline decoration-[var(--border-color)] underline-offset-4">LINKEDIN</Link>
+                </div>
             </div>
 
-            <div>
-                <Link
-                    href="#home"
-                    aria-label="Back to Top"
-                    className="inline-flex justify-center items-center w-12 h-12 bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-xl text-3xl text-[var(--text-color)] transition-all duration-300 hover:bg-[var(--gradient)] hover:text-white hover:-translate-y-1 hover:border-transparent"
-                >
-                    <i className="bx bx-up-arrow-alt"></i>
-                </Link>
-            </div>
+            <Link
+                href="#home"
+                className="text-[10px] font-black tracking-widest uppercase bg-[var(--selection-bg)] px-3 py-2 rounded hover:bg-[var(--text-color)] hover:text-[var(--bg-color)] transition-all"
+            >
+                BACK TO TOP ↑
+            </Link>
         </footer>
     );
 }

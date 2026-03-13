@@ -1,0 +1,120 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Footer from "@/components/Footer";
+
+export default function Newsletter() {
+    const pillars = [
+        {
+            title: "Intention",
+            desc: "Focusing on the 'why' and finding clarity before you write a single line of code."
+        },
+        {
+            title: "Insight",
+            desc: "Lessons from the front lines of building products, leading teams, and scaling ideas."
+        },
+        {
+            title: "Action",
+            desc: "Practical, immediate takeaways that you can apply to your work today."
+        }
+    ];
+
+    const issues = [
+        { date: "2026-03-08", title: "#11 Build With Intention | To the Women Building in Silence" },
+        { date: "2026-03-01", title: "#10 Build With Intention | The Deadline That Broke My Excuses" },
+        { date: "2026-02-22", title: "#9 Build With Intention | Pivoting Isn't Failure. Staying Stuck Is." }
+    ];
+
+    return (
+        <div className="content-area">
+            <section className="py-12">
+                <div className="flex flex-col gap-20">
+                    {/* Hero Section */}
+                    <div className="flex flex-col gap-8 max-w-3xl">
+                        <p className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">NEWSLETTER</p>
+                        <h1 className="text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]">
+                            Build With Intention
+                        </h1>
+                        <p className="text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl">
+                            Every Sunday, I share one idea to help you build smarter ~ as a founder, leader, or engineer.
+                        </p>
+
+                        <form className="flex flex-col gap-6 mt-4 p-8 bg-[var(--selection-bg)] rounded-3xl border border-[var(--border-color)]">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] ml-1">Name</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Your name" 
+                                        className="px-4 py-3 rounded-xl bg-[var(--bg-color)] border border-[var(--border-color)] text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all"
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] ml-1">Email</label>
+                                    <input 
+                                        type="email" 
+                                        placeholder="you@example.com" 
+                                        className="px-4 py-3 rounded-xl bg-[var(--bg-color)] border border-[var(--border-color)] text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all"
+                                    />
+                                </div>
+                            </div>
+                            <button className="flex items-center justify-center gap-3 px-6 py-3 bg-black text-white dark:bg-white dark:text-black font-bold rounded-xl w-max transition-transform hover:scale-[1.02]">
+                                <i className="bx bx-envelope text-xl"></i>
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+
+                    {/* Pillars Section */}
+                    <div className="flex flex-col gap-10 py-20 border-t border-[var(--border-color)]">
+                        <div>
+                            <p className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">WHAT TO EXPECT</p>
+                            <h2 className="text-3xl font-bold tracking-tight mt-2">Three pillars, one idea each week</h2>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {pillars.map((p, i) => (
+                                <div key={i} className="flex flex-col gap-4">
+                                    <h3 className="text-lg font-bold">{p.title}</h3>
+                                    <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                                        {p.desc}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Archive Section */}
+                    <div className="flex flex-col gap-10 py-20 border-t border-[var(--border-color)]">
+                        <div className="flex justify-between items-end">
+                            <div>
+                                <p className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">PREVIOUS EDITIONS</p>
+                                <h2 className="text-3xl font-bold tracking-tight mt-2">See what's inside</h2>
+                            </div>
+                            <Link href="#" className="text-xs font-bold text-[var(--text-muted)] hover:text-[var(--text-color)] transition-colors">
+                                Browse all →
+                            </Link>
+                        </div>
+                        <div className="flex flex-col gap-0 border-t border-[var(--border-color)]">
+                            {issues.map((issue, i) => (
+                                <Link 
+                                    key={i} 
+                                    href="#" 
+                                    className="grid grid-cols-1 md:grid-cols-[120px_1fr_40px] py-8 border-b border-[var(--border-color)] group items-center transition-all hover:bg-[var(--selection-bg)] px-4"
+                                >
+                                    <span className="text-sm font-mono text-[var(--text-muted)]">{issue.date}</span>
+                                    <span className="text-base font-medium tracking-tight group-hover:translate-x-1 transition-transform">{issue.title}</span>
+                                    <i className="bx bx-right-arrow-alt text-xl text-[var(--text-muted)] opacity-0 group-hover:opacity-100 transition-all ml-auto"></i>
+                                </Link>
+                            ))}
+                        </div>
+                        <Link href="#" className="text-xs font-bold text-[var(--text-muted)] hover:text-[var(--text-color)] flex items-center gap-2">
+                            View all {issues.length * 3}+ editions <i className="bx bx-right-arrow-alt"></i>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+            <Footer />
+        </div>
+    );
+}

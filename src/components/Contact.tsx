@@ -12,22 +12,21 @@ export default function Contact() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Make sure to replace these IDs with actual valid EmailJS service, template, and public key
         emailjs
             .sendForm(
-                "service_2l2sler", // Service ID
-                "template_d6q7w68", // Template ID
+                "service_2l2sler", 
+                "template_d6q7w68", 
                 formRef.current!,
-                "eM2mO7s0WlBN_kuoc" // Public Key
+                "eM2mO7s0WlBN_kuoc"
             )
             .then(
                 () => {
-                    alert("Message sent successfully! 📩");
+                    alert("Message sent successfully!");
                     formRef.current?.reset();
                     setIsSubmitting(false);
                 },
                 (error) => {
-                    alert("Oops! Something went wrong. ❌");
+                    alert("Something went wrong.");
                     console.error(error);
                     setIsSubmitting(false);
                 }
@@ -35,81 +34,74 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="py-24 sm:py-32 px-[5%] md:px-[9%] overflow-hidden">
-            <motion.h2
-                className="heading mb-16 text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-            >
-                Let's <span className="text-gradient">Connect</span>
-            </motion.h2>
-
-            <motion.form
-                ref={formRef}
-                onSubmit={sendEmail}
-                className="max-w-[800px] mx-auto bg-[var(--glass-bg)] p-10 sm:p-12 rounded-[2rem] border border-[var(--glass-border)] backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-            >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        required
-                        className="w-full p-4 rounded-xl text-lg bg-[rgba(255,255,255,0.02)] dark:bg-[rgba(0,0,0,0.02)] border border-[var(--glass-border)] text-[var(--text-color)] focus:border-[var(--main-color)] focus:bg-[rgba(255,255,255,0.05)] focus:ring-4 focus:ring-[rgba(0,171,240,0.1)] transition-all outline-none"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        required
-                        className="w-full p-4 rounded-xl text-lg bg-[rgba(255,255,255,0.02)] dark:bg-[rgba(0,0,0,0.02)] border border-[var(--glass-border)] text-[var(--text-color)] focus:border-[var(--main-color)] focus:bg-[rgba(255,255,255,0.05)] focus:ring-4 focus:ring-[rgba(0,171,240,0.1)] transition-all outline-none"
-                    />
+        <section id="contact" className="py-20 border-t border-[var(--border-color)] mb-20">
+            <div className="flex flex-col gap-12">
+                <div className="flex items-center gap-3">
+                    <span className="px-2 py-1 bg-[var(--text-color)] text-[var(--bg-color)] text-[10px] font-bold tracking-widest uppercase rounded">
+                        GET IN TOUCH
+                    </span>
+                    <span className="w-8 h-[1px] bg-[var(--border-color)]"></span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                    <input
-                        type="tel"
-                        name="mobile"
-                        inputMode="tel"
-                        pattern="^\+?[0-9\s\-]{7,15}$"
-                        placeholder="Mobile Number"
-                        required
-                        className="w-full p-4 rounded-xl text-lg bg-[rgba(255,255,255,0.02)] dark:bg-[rgba(0,0,0,0.02)] border border-[var(--glass-border)] text-[var(--text-color)] focus:border-[var(--main-color)] focus:bg-[rgba(255,255,255,0.05)] focus:ring-4 focus:ring-[rgba(0,171,240,0.1)] transition-all outline-none"
-                    />
-                    <input
-                        type="text"
-                        name="subject"
-                        placeholder="Subject"
-                        required
-                        className="w-full p-4 rounded-xl text-lg bg-[rgba(255,255,255,0.02)] dark:bg-[rgba(0,0,0,0.02)] border border-[var(--glass-border)] text-[var(--text-color)] focus:border-[var(--main-color)] focus:bg-[rgba(255,255,255,0.05)] focus:ring-4 focus:ring-[rgba(0,171,240,0.1)] transition-all outline-none"
-                    />
+                <div className="max-w-2xl">
+                    <h2 className="text-3xl font-bold tracking-tight mb-4">Let's build something together.</h2>
+                    <p className="text-base text-[var(--text-muted)] leading-relaxed">
+                        Currently open to new opportunities and collaborations. Drop me a message and I'll get back to you as soon as possible.
+                    </p>
                 </div>
 
-                <textarea
-                    name="message"
-                    cols={30}
-                    rows={6}
-                    placeholder="Your Message"
-                    required
-                    className="w-full p-4 rounded-xl text-lg bg-[rgba(255,255,255,0.02)] dark:bg-[rgba(0,0,0,0.02)] border border-[var(--glass-border)] text-[var(--text-color)] focus:border-[var(--main-color)] focus:bg-[rgba(255,255,255,0.05)] focus:ring-4 focus:ring-[rgba(0,171,240,0.1)] transition-all outline-none resize-none mb-10"
-                ></textarea>
-
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-gradient w-full py-4 rounded-xl text-xl font-bold text-white transition-all outline-none disabled:opacity-70 flex justify-center items-center"
+                <form
+                    ref={formRef}
+                    onSubmit={sendEmail}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
-                    {isSubmitting ? (
-                        <span className="flex items-center gap-2">
-                            <i className='bx bx-loader-alt animate-spin text-2xl'></i> Sending...
-                        </span>
-                    ) : "Send Request"}
-                </button>
-            </motion.form>
+                    <div className="flex flex-col gap-2">
+                        <label className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            className="bg-transparent border border-[var(--border-color)] rounded-lg p-4 text-sm focus:border-[var(--text-color)] outline-none transition-colors"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <label className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            className="bg-transparent border border-[var(--border-color)] rounded-lg p-4 text-sm focus:border-[var(--text-color)] outline-none transition-colors"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2 md:col-span-2">
+                        <label className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">Subject</label>
+                        <input
+                            type="text"
+                            name="subject"
+                            required
+                            className="bg-transparent border border-[var(--border-color)] rounded-lg p-4 text-sm focus:border-[var(--text-color)] outline-none transition-colors"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2 md:col-span-2">
+                        <label className="text-[10px] font-bold tracking-widest text-[var(--text-muted)] uppercase">Message</label>
+                        <textarea
+                            name="message"
+                            rows={6}
+                            required
+                            className="bg-transparent border border-[var(--border-color)] rounded-lg p-4 text-sm focus:border-[var(--text-color)] outline-none transition-colors resize-none"
+                        ></textarea>
+                    </div>
+                    <div className="md:col-span-2">
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full md:w-auto px-12 py-4 bg-[var(--text-color)] text-[var(--bg-color)] font-bold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+                        >
+                            {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
+                        </button>
+                    </div>
+                </form>
+            </div>
         </section>
     );
 }
