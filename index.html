@@ -15,51 +15,77 @@
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Oyugi Mourice Odhiambo - Software Engineer" />
     <meta property="og:description" content="Software Engineer specializing in building exceptional digital experiences." />
-    <meta property="og:image" content="https://oyugi.netlify.app/home-image.jpg" />
-    <meta property="og:url" content="https://oyugi.netlify.app" />
+    <meta property="og:image" content="https://oyugi.netlify.app/img/home-image.jpg" />
+    <meta property="og:url" content="https://oyugi.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://oyugi.netlify.app/" />
     
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Oyugi Mourice Odhiambo - Software Engineer Portfolio" />
     <meta name="twitter:description" content="Software Engineer specializing in building exceptional digital experiences." />
-    <meta name="twitter:image" content="https://oyugi.netlify.app/home-image.jpg" />
+    <meta name="twitter:image" content="https://oyugi.netlify.app/img/home-image.jpg" />
 
     <!-- External Css stylings -->
-    <link rel="stylesheet" href="style.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
 
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.png">
+
+    <!-- Apply saved/system theme before paint to avoid a flash -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem("theme");
+            var light = saved ? saved === "light" : window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (light) document.documentElement.classList.add("light-mode");
+        })();
+    </script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Oyugi Mourice Odhiambo",
+        "jobTitle": "Software Engineer",
+        "url": "https://oyugi.netlify.app/",
+        "image": "https://oyugi.netlify.app/img/home-image.jpg",
+        "sameAs": [
+            "https://github.com/oyugimourice",
+            "https://www.linkedin.com/in/oyugimourice",
+            "https://twitter.com/oyugijR1"
+        ]
+    }
+    </script>
     
 </head>
 
 <body>
     <!-- header section -->
     <header class="header">
-        <a href="#" class="logo ">Oyugi.</a>
-        <div class="bx bx-menu" id="menu-icon"></div>
+        <a href="#home" class="logo">Oyugi.</a>
+        <button type="button" class="bx bx-menu" id="menu-icon" aria-label="Toggle navigation menu" aria-expanded="false"></button>
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#portfolio">My Project</a>
             <a href="#contact">Contact</a>
-            <a><i class='bx bx-sun' id="DarkMode"></i></a>
-            <samp class="active-nav"></samp>
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"><i class='bx bx-sun'></i></button>
+            <span class="active-nav"></span>
         </nav>
     </header>
 
     <!-- Home Section -->
     <section class="home show-animate" id="home">
         <div class="home-content">
-            <h1>Hallo, I'm </br>
+            <h1>Hello, I'm <br>
                 <span>Oyugi Mourice</span>
             </h1>
             <div class="text-animate">
-                <h3>And I'm a <samp class="multiple-text"></samp></h3>
+                <h3>And I'm a <span class="multiple-text"></span></h3>
             </div>
             <p>
                 Software engineer, passionate about coding and problem-solving. Committed to learning,
@@ -67,32 +93,32 @@
             </p>
             <div class="btn-box">
                 <a href="#contact" class="btn">Hire Me</a>
-                <a href="https://docs.google.com/document/d/1Aq0L6wZ-xKdrt0JHD7juY3MenCMJGU7Ml2TJGQJuEiI/edit?tab=t.0/export?format=pdf" class="btn" target="_blank">My Resume</a>
+                <a href="https://docs.google.com/document/d/1Aq0L6wZ-xKdrt0JHD7juY3MenCMJGU7Ml2TJGQJuEiI/edit?usp=sharing" class="btn" target="_blank" rel="noopener">My Resume</a>
 
             </div>
             <div class="home-sci">
-                <a href="https://wa.me/0700314150"><i class='bx bxl-whatsapp'></i></a>
-                <a href="https://github.com/oyugijr"><i class='bx bxl-github'></i></a>
-                <a href="https://twitter.com/oyugijR1"><i class='bx bxl-twitter'></i></a>
-                <a href="https://www.linkedin.com/in/oyugimourice"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://wa.me/254700314150" target="_blank" rel="noopener" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://github.com/oyugimourice" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                <a href="https://twitter.com/oyugijR1" target="_blank" rel="noopener" aria-label="Twitter"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.linkedin.com/in/oyugimourice" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
             </div>
         </div>
         <!-- New Image Section -->
         <div class="home-image">
-            <img src="img/home-image.jpg" alt="Oyugi Mourice Odhiambo">
+            <img src="img/home-image.jpg" alt="Portrait of Oyugi Mourice Odhiambo" width="400" height="400">
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <h2 class="heading">About <span>Me</span></h2>
-        <div class="about - container">
+        <div class="about-container">
             <div class="about-img">
-                <img src="img/ste.jpg">
-                <span class="circle-spin" object-fit="fit"></span>
+                <img src="img/ste.jpg" alt="Oyugi Mourice Odhiambo">
+                <span class="circle-spin"></span>
             </div>
             <div class="about-content">
-                <h3>Software Engineer !</h3>
+                <h3>Software Engineer!</h3>
                 <p>A visionary with a strong enthusiasm for exploring intricate challenges and discovering fresh viewpoints. I thrive on questioning the status quo and discovering innovative solutions to challenges. Fueled by curiosity and a dedication to lifelong learning, I embrace opportunities to push boundaries and create a meaningful impact.</p>
             </div>
         </div>
@@ -107,7 +133,7 @@
                         <span class="company">Power Learn Project Africa</span>
                         <span class="dates">2025-Present</span>
                     </div>
-                    <p><Legend><i>Coursework:</i></Legend> Software engineering essentials, Startup Building, Database programming with SQL, Python programming, web development</p>
+                    <p><strong>Coursework:</strong> Software engineering essentials, Startup Building, Database programming with SQL, Python programming, web development</p>
                 </div>
                 <div class="card-item hidden-items">
                     <h4 class="position">Bachelor of Science in Software Engineering</h4>
@@ -115,7 +141,7 @@
                         <span class="company">Kirinyaga University</span>
                         <span class="dates">2022-Present</span>
                     </div>
-                    <p><Legend><i>Coursework:</i></Legend> OOD in java, OOP, Data structures and Algorithms, Database systems,  Database Management Systems,Computer Networks, Linear Algebra, Discrete mathematics, Applied statistics</p>
+                    <p><strong>Coursework:</strong> OOD in java, OOP, Data structures and Algorithms, Database Systems, Database Management Systems, Computer Networks, Linear Algebra, Discrete mathematics, Applied statistics</p>
                 </div>
                 <div class="card-item hidden-items">
                     <h4 class="position">Internet and Computing Core Certification(IC3)</h4>
@@ -123,9 +149,9 @@
                         <span class="company">Citizen College</span>
                         <span class="dates">July 2022</span>
                     </div>
-                    <p><Legend><i>Coursework:</i></Legend> Computer fundamentals, Microsoft office applications, Fundamentals of Computer networks and Internet</p>
+                    <p><strong>Coursework:</strong> Computer fundamentals, Microsoft office applications, Fundamentals of Computer networks and Internet</p>
                 </div>
-                <button class="toggle-btn" onclick="toggleSection(this)">
+                <button type="button" class="toggle-btn" aria-expanded="false" onclick="toggleSection(this)">
                     Show All <i class="fas fa-chevron-down"></i>
                 </button>
             </div>
@@ -149,14 +175,14 @@
                     </div>
                     <p>Optimized performance and SEO, integrated Stripe in MAJI APP, and delivered a 98% project grade with a 4-member Agile team.</p>
                 </div>
-                <button class="toggle-btn" onclick="toggleSection(this)">
+                <button type="button" class="toggle-btn" aria-expanded="false" onclick="toggleSection(this)">
                     Show All <i class="fas fa-chevron-down"></i>
                 </button>
             </div>
         </div>
 
         <div class="btn-box btns">
-            <a href="#" class="btn-readmore" onclick="toggleContent(event)">Read More</a>
+            <button type="button" class="btn-readmore" aria-expanded="false" aria-controls="expandableContent" onclick="toggleContent()">Read More</button>
         </div>
     </section>
 
@@ -164,85 +190,34 @@
     <section class="skills" id="skills">
         <h2 class="heading">My <span>Skills</span></h2>
         <div class="skills-row">
-            <!-- Coding Skills -->
             <div class="skills-column">
                 <h3 class="title">Coding Skills</h3>
-                <div class="skills-box">
-                    <div class="skills-content">
-                        <div class="progress">
-                            <h3><i class='bx bxl-html5 icon-skills'></i>HTML <span>95%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3><i class='bx bxl-css3'></i>CSS <span>92%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3><i class='bx bxl-javascript'></i>JavaScript <span>70%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3><i class='bx bxl-php'></i>PHP <span>70%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3><i class='bx bxl-python'></i>python <span>40%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="skills-list">
+                    <li><span class="skill-name"><i class='bx bxl-html5'></i>HTML</span><span class="skill-level level-proficient">Proficient</span></li>
+                    <li><span class="skill-name"><i class='bx bxl-css3'></i>CSS</span><span class="skill-level level-proficient">Proficient</span></li>
+                    <li><span class="skill-name"><i class='bx bxl-javascript'></i>JavaScript</span><span class="skill-level level-intermediate">Intermediate</span></li>
+                    <li><span class="skill-name"><i class='bx bxl-php'></i>PHP</span><span class="skill-level level-intermediate">Intermediate</span></li>
+                    <li><span class="skill-name"><i class='bx bxl-python'></i>Python</span><span class="skill-level level-familiar">Familiar</span></li>
+                </ul>
             </div>
-            <!-- Professional skills -->
             <div class="skills-column">
                 <h3 class="title">Professional Skills</h3>
-                <div class="skills-box">
-                    <div class="skills-content">
-                        <div class="progress">
-                            <h3>Web Design <span>90%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Web Development <span>75%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Graphic Design <span>60%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>SEO Marketing<span>50%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Android Development<span>40%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="skills-list">
+                    <li><span class="skill-name">Web Design</span><span class="skill-level level-proficient">Proficient</span></li>
+                    <li><span class="skill-name">Web Development</span><span class="skill-level level-intermediate">Intermediate</span></li>
+                    <li><span class="skill-name">Graphic Design</span><span class="skill-level level-intermediate">Intermediate</span></li>
+                    <li><span class="skill-name">SEO Marketing</span><span class="skill-level level-familiar">Familiar</span></li>
+                    <li><span class="skill-name">Android Development</span><span class="skill-level level-familiar">Familiar</span></li>
+                </ul>
             </div>
-            <!-- Soft Skills -->
             <div class="skills-column">
                 <h3 class="title">Soft Skills</h3>
-                <div class="skills-box">
-                    <div class="skills-content">
-                        <div class="progress">
-                            <h3>communication <span>96%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Time management <span>95%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Collaboration <span>95%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                        <div class="progress">
-                            <h3>Attention to detail<span>98%</span></h3>
-                            <div class="bar"><span></span></div>
-                        </div>
-                    </div>
-                </div>
+                <ul class="skills-list">
+                    <li><span class="skill-name">Communication</span></li>
+                    <li><span class="skill-name">Time Management</span></li>
+                    <li><span class="skill-name">Collaboration</span></li>
+                    <li><span class="skill-name">Attention to Detail</span></li>
+                </ul>
             </div>
         </div>
 
@@ -298,17 +273,14 @@
             <!-- Project 1 -->
             <div class="portfolio-box">
                 <div class="project-image">
-                    <img src="img/luhn-algo.jpeg" alt="Project 1">
+                    <img src="img/luhn-algo.jpeg" alt="Luhn Algorithm CLI running in a terminal" loading="lazy">
                 </div>
                 <div class="project-details">
                     <div class="project-header">
                         <h3 class="project-title">Luhn Algorithm CLI</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/luhn_algo.git" target="_blank">
+                            <a href="https://github.com/oyugimourice/luhn_algo" target="_blank" rel="noopener" aria-label="View source on GitHub">
                                 <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -326,17 +298,14 @@
             <!-- Project 2 -->
             <div class="portfolio-box">
                 <div class="project-image">
-                    <img src="img/ecotech.jpg" alt="Project 2">
+                    <img src="img/ecotech.jpg" alt="EcoTech Platform home page" loading="lazy">
                 </div>
                 <div class="project-details">
                     <div class="project-header">
                         <h3 class="project-title">EcoTech Platform</h3>
                         <div class="project-links">
-                            <a href="https://github.com/ogwgjr/echo-tech.git" target="_blank">
+                            <a href="https://github.com/oyugimourice/echo-tech" target="_blank" rel="noopener" aria-label="View source on GitHub">
                                 <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -354,17 +323,14 @@
             <!-- Project 3 -->
             <div class="portfolio-box">
                 <div class="project-image">
-                    <img src="img/expense-tracker.jpeg" alt="Project 3">
+                    <img src="img/expense-tracker.jpeg" alt="Expense Tracker CLI" loading="lazy">
                 </div>
                 <div class="project-details">
                     <div class="project-header">
                         <h3 class="project-title">Expense Tracker CLI</h3>
                         <div class="project-links">
-                            <a href="https://github.com/yourusername/expense-tracker.git" target="_blank">
+                            <a href="https://github.com/oyugimourice/expense-tracker-cli" target="_blank" rel="noopener" aria-label="View source on GitHub">
                                 <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -381,17 +347,14 @@
             <!-- Project 4 -->
             <div class="portfolio-box">
                 <div class="project-image">
-                    <img src="img/automated.jpeg" alt="Project 4">
+                    <img src="img/automated.jpeg" alt="Arduino automated systems circuit in TinkerCAD" loading="lazy">
                 </div>
                 <div class="project-details">
                     <div class="project-header">
                         <h3 class="project-title">Automated Systems</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/Automated-Systems-Project.git" target="_blank">
+                            <a href="https://github.com/oyugimourice/Automated-Systems-Project" target="_blank" rel="noopener" aria-label="View source on GitHub">
                                 <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -409,27 +372,27 @@
             <!-- Project 5 -->
             <div class="portfolio-box">
                 <div class="project-image">
-                    <img src="img/oyugi-portfolio.jpg" alt="Project 5">
+                    <img src="img/oyugi-portfolio.jpg" alt="Oyugi portfolio website" loading="lazy">
                 </div>
                 <div class="project-details">
                     <div class="project-header">
                         <h3 class="project-title">Portfolio</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/oyugi-portfolio.git" target="_blank">
+                            <a href="https://github.com/oyugimourice/oyugi-portfolio" target="_blank" rel="noopener" aria-label="View source on GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://oyugi.netlify.app" target="_blank">
+                            <a href="https://oyugi.netlify.app" target="_blank" rel="noopener" aria-label="View live site">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        A personal portfolio website that highlights the skills and projects of Oyugi Mourice Odhiambo, a Software Engineer.It aims to create an engaging digital experience that highlights professional capabilities.
+                        A personal portfolio website that highlights the skills and projects of Oyugi Mourice Odhiambo, a Software Engineer. It aims to create an engaging digital experience that highlights professional capabilities.
                     </p>
                     <div class="project-technologies">
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">Javascript</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
                 </div>
             </div>
@@ -437,25 +400,22 @@
             <!-- Project 6 -->
             <div class="portfolio-box">
                 <div class="project-image">
-                    <img src="img/sorting-vusualizer.png" alt="Project 6">
+                    <img src="img/sorting-vusualizer.png" alt="Sorting Visualizer" loading="lazy">
                 </div>
                 <div class="project-details">
                     <div class="project-header">
                         <h3 class="project-title">Sorting Visualizer</h3>
                         <div class="project-links">
-                            <a href="https://github.com/oyugijr/algoVista.git" target="_blank">
+                            <a href="https://github.com/oyugimourice/algoVista" target="_blank" rel="noopener" aria-label="View source on GitHub">
                                 <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" target="_blank">
-                                <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
                     <p class="project-description">
-                        Implements the nost efficient version of each algorithm for optimized time complexity and performance, it represents a comparison in BigO complexities of the algorithms by displayignn the numbber of operations.
+                        Implements the most efficient version of each sorting algorithm and compares their Big O complexities by displaying the number of operations each one performs.
                     </p>
                     <div class="project-technologies">
-                        <span class="tech-tag">Typescript</span>
+                        <span class="tech-tag">TypeScript</span>
                         <span class="tech-tag">HTML</span>
                         <span class="tech-tag">CSS</span>
                     </div>
@@ -467,26 +427,35 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
-        <form id = "contact-form" action="#">
+        <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <p class="visually-hidden">
+                <label>Don’t fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
             <div class="input-box">
                 <div class="input-field">
-                    <input id="name" type="text" placeholder="Full Name" required>
+                    <label for="name" class="visually-hidden">Full Name</label>
+                    <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required>
                 </div>
                 <div class="input-field">
-                    <input id="email" type="email" placeholder="Email" required>
+                    <label for="email" class="visually-hidden">Email</label>
+                    <input id="email" name="email" type="email" placeholder="Email" autocomplete="email" required>
                 </div>
             </div>
             <div class="input-box">
                 <div class="input-field">
-                    <input id="mobile" type="number" placeholder="Mobile Number" required>
+                    <label for="mobile" class="visually-hidden">Mobile Number</label>
+                    <input id="mobile" name="mobile" type="tel" placeholder="Mobile Number" autocomplete="tel">
                 </div>
                 <div class="input-field">
-                    <input id="subject" type="text" placeholder="Email Subject" required>
+                    <label for="subject" class="visually-hidden">Subject</label>
+                    <input id="subject" name="subject" type="text" placeholder="Subject" required>
                 </div>
             </div>
             <div class="textarea-field">
-                <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <label for="message" class="visually-hidden">Your Message</label>
+                <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
             </div>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             <div class="btn-box btns">
                 <button type="submit" class="btn">Submit</button>
             </div>
@@ -498,18 +467,17 @@
     <footer class="footer">
         <!-- Footer Text -->
         <div class="footer-text">
-            <p>Copyright &copy; 2026 by Oyugi | All Rights Reserved</p>
+            <p>Copyright &copy; <span id="year">2026</span> by Oyugi | All Rights Reserved</p>
         </div>
         <!-- Back to Top Icons -->
         <div class="footer-iconTop">
-            <a href="#"><i class='bx bx-upvote'></i></a>
+            <a href="#home" aria-label="Back to top"><i class='bx bx-upvote'></i></a>
         </div>
     </footer>
 
     <!-- External Scripts -->
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 
