@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 /* Global Styles */
 * {
@@ -9,8 +9,37 @@
   text-decoration: none;
   border: none;
   outline: none;
-  scroll-behavior: smooth;
   font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
+}
+
+/* Visible focus ring for keyboard users */
+:focus-visible {
+  outline: 0.25rem solid var(--main-color);
+  outline-offset: 0.3rem;
+  border-radius: 0.4rem;
+}
+
+/* Hide content visually but keep it available to screen readers */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
 /* Define CSS Variables */
@@ -21,8 +50,8 @@
   --main-color: #00abf0;
 }
 
-/* Dark Mode Variables */
-.dark-mode {
+/* Light Mode Variables */
+.light-mode {
   --bg-color: #ffffff;
   --second-bg-color: #caddff;
   --text-color: #000000;
@@ -53,8 +82,9 @@ body {
   z-index: 100;
   transition: 0.3s;
 }
-.header .sticky {
+.header.sticky {
   background: var(--bg-color);
+  box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.2);
 }
 .logo {
   font-size: 3.5rem;
@@ -75,8 +105,20 @@ body {
 #menu-icon {
   font-size: 2.5rem;
   color: var(--text-color);
+  background: none;
   cursor: pointer;
   display: none;
+}
+.theme-toggle {
+  background: none;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-left: 3.5rem;
+  vertical-align: middle;
+  transition: 0.3s;
+}
+.theme-toggle:hover {
+  color: var(--main-color);
 }
 
 /* Section Styling */
@@ -385,8 +427,7 @@ span {
   font-size: 1.8rem;
   border-radius: 0.8rem;
   text-decoration: none;
-  font-family: 600;
-  initial-letter: 0.1rem;
+  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 2rem;
   /* transition: all 0.3s ease; */
@@ -438,33 +479,59 @@ span {
   color: var(--main-color);
 }
 
-.skills-content .progress {
-  padding: 1.2rem 0;
+.skills-list {
+  list-style: none;
 }
 
-.skills-content .progress h3 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
+.skills-list li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-bottom: 0.1rem solid var(--second-bg-color);
 }
 
-.skills-content .progress h3 span {
+.skills-list li:last-child {
+  border-bottom: none;
+}
+
+.skills-list .skill-name {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   color: var(--text-color);
 }
 
-.skills-content .progress .bar {
-  height: 1.5rem;
-  border-radius: 0.5rem;
-  border: 0.2rem solid var(--main-color);
+.skills-list .skill-name i {
+  font-size: 2.2rem;
+  color: var(--main-color);
 }
 
-.skills-content .progress .bar span {
+.skill-level {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  border: 0.15rem solid var(--main-color);
+  white-space: nowrap;
+}
+
+.skill-level.level-proficient {
   background: var(--main-color);
-  border-radius: 0.3rem;
-  height: 100%;
-  display: block;
-  transition: width 0.5s ease;
+  color: var(--bg-color);
+}
+
+.skill-level.level-intermediate {
+  color: var(--main-color);
+}
+
+.skill-level.level-familiar {
+  color: var(--text-color);
+  border-style: dashed;
+  opacity: 0.8;
 }
 
 /* Responsive Design */
@@ -483,24 +550,6 @@ span {
     margin-bottom: 2rem;
   }
 }
-
-/* Progress Bar Widths */
-.skills-column:nth-child(1) .progress:nth-child(1) .bar span { width: 95%; }
-.skills-column:nth-child(1) .progress:nth-child(2) .bar span { width: 92%; }
-.skills-column:nth-child(1) .progress:nth-child(3) .bar span { width: 70%; }
-.skills-column:nth-child(1) .progress:nth-child(4) .bar span { width: 70%; }
-.skills-column:nth-child(1) .progress:nth-child(5) .bar span { width: 60%; }
-
-.skills-column:nth-child(2) .progress:nth-child(1) .bar span { width: 90%; }
-.skills-column:nth-child(2) .progress:nth-child(2) .bar span { width: 85%; }
-.skills-column:nth-child(2) .progress:nth-child(3) .bar span { width: 60%; }
-.skills-column:nth-child(2) .progress:nth-child(4) .bar span { width: 50%; }
-.skills-column:nth-child(2) .progress:nth-child(5) .bar span { width: 40%; }
-
-.skills-column:nth-child(3) .progress:nth-child(1) .bar span { width: 96%; }
-.skills-column:nth-child(3) .progress:nth-child(2) .bar span { width: 95%; }
-.skills-column:nth-child(3) .progress:nth-child(3) .bar span { width: 93%; }
-.skills-column:nth-child(3) .progress:nth-child(4) .bar span { width: 90%; }
 
 .tools-tech {
   text-align: center;
@@ -858,6 +907,11 @@ section:nth-child(odd) .animate.scroll,
     transform: translateX(0);
     transition-delay: 0.25s;
   }
+  .theme-toggle {
+    display: block;
+    font-size: 2.4rem;
+    margin: 3rem 0;
+  }
   .portfolio-container {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -896,4 +950,36 @@ section:nth-child(odd) .animate.scroll,
   .home-content h1 {
     font-size: 5rem;
   }
+}
+/* Contact form status message */
+.form-status {
+  font-size: 1.6rem;
+  text-align: center;
+  min-height: 2rem;
+  margin: 1rem 0;
+}
+.form-status.success {
+  color: var(--main-color);
+}
+.form-status.error {
+  color: #ff6b6b;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Extra education/experience entries stay collapsed until "Show All" */
+.card-item.hidden-items {
+  display: none;
 }
